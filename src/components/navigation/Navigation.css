@@ -1,0 +1,24 @@
+footer {
+  height: 50px;
+  background: #005b8a;
+  text-align: center;
+  padding: 0px;
+}
+
+footer .prev {
+  color: #ffffff !important;
+  background: #6c2233 !important;
+  opacity: 1;
+  cursor: not-allowed;
+  box-shadow: none;
+  outline: none;
+}
+
+div .round {
+  border-radius: 50%;
+  height: 15px;
+  width: 15px;
+  background: #fafafa;
+  display: inline-flex;
+  margin: 10px 1%;
+}
