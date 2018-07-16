@@ -1,15 +1,14 @@
 footer {
+  position: absolute;
+  bottom: 0;
   height: 50px;
   background: #005b8a;
   text-align: center;
   padding: 0px;
+  width: 100%;
 }
 
-footer .prev {
-  color: #ffffff !important;
-  background: #6c2233 !important;
-  opacity: 1;
-  cursor: not-allowed;
+footer btn {
   box-shadow: none;
   outline: none;
 }

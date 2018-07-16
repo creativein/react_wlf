@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import './App.css';
 import Navigation from './components/navigation/Navigation'
+import Assignment from './components/assignment/Assignment';
 
 class App extends Component {
 
@@ -9,6 +10,8 @@ class App extends Component {
     title: '',
     direction: '',
     rounds: [],
+    currentRoundIndex: 0,
+    currentScreenIndex: 0
   }
 
   componentDidMount() {
@@ -24,8 +27,8 @@ class App extends Component {
   }
 
   updateRounds(rounds) {
-    const roundsArray = [];
-    const screensArray = [];
+    let roundsArray = [];
+    let screensArray = [];
     rounds = Array.from(rounds);
     rounds.map((round, index) => {
       const screens = round.getElementsByTagName('screens')[0];
@@ -37,11 +40,11 @@ class App extends Component {
         const sentencesHolder = item.getElementsByTagName('sentences')[0];
         let sentences = sentencesHolder.getElementsByTagName('sentence');
         sentences = Array.from(sentences);
-        sentences = sentences.map(sentence => { 
-          return sentence.getElementsByTagName('text')[0].innerHTML 
+        sentences = sentences.map(sentence => {
+          return sentence.getElementsByTagName('text')[0].innerHTML
         });
         const screen = {
-          sentences : sentences
+          sentences: sentences
         }
         screensArray.push(screen);
       })
@@ -50,18 +53,50 @@ class App extends Component {
         active: false,
         screens: screensArray
       })
+      screensArray = [];
     });
     this.setState({ rounds: roundsArray });
-    console.log(roundsArray);
+    console.log(this.state.rounds);
+  }
+
+  goBack() {
+    let screenIndex = this.state.currentScreenIndex;
+    let roundIndex= this.state.currentRoundIndex;
+    let currentRound = this.state.rounds[roundIndex];
+    
+    if ((screenIndex == 0) && (currentRound == 0)) {
+      // can't go to back
+    } else {
+      this.setState({currentScreenIndex: screenIndex - 1})
+    }
+
+  }
+
+  goForward() {
+    let screenIndex = this.state.currentScreenIndex;
+    let roundIndex= this.state.currentRoundIndex;
+    let currentRound = this.state.rounds[roundIndex];
+    
+    if (screenIndex < (currentRound.screens.length - 1)) {
+      this.setState({currentScreenIndex: screenIndex + 1})
+    } else if(roundIndex < this.state.rounds.length - 1) {
+      this.setState({currentRoundIndex : roundIndex + 1, currentScreenIndex: 0});
+    }
   }
 
   render() {
+    const assignment = (this.state.rounds.length > 0) ? <React.Fragment>
+      <Assignment sentences={this.state.rounds[this.state.currentRoundIndex].screens[this.state.currentScreenIndex]} />
+    </React.Fragment> : ''
     return (
       <div className="App">
         <header className="App-header">
           <h1 className="App-title">{this.state.title}</h1>
         </header>
-        <Navigation rounds={this.state.rounds} />
+        {assignment}
+        <Navigation rounds={this.state.rounds}
+          goBack={this.goBack.bind(this)}
+          goForward={this.goForward.bind(this)} />
       </div>
     );
   }

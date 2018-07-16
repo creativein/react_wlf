@@ -8,24 +8,24 @@ class Navigation extends Component {
     }
 
     render() {
-        const rounds = this.props.rounds.map(round=>{
+        const rounds = this.props.rounds.map(round => {
             return <div className="round"></div>
         })
         return (
             <footer>
                 <button className="btn prev" onClick={() => this.onPrevClick()}> Prev </button>
-                    {rounds}
+                {rounds}
                 <button className="btn next" onClick={() => this.onNextClick()}> Next </button>
             </footer>
         );
     }
 
     onPrevClick() {
-        console.log('hello i am clicked');
+        this.props.goBack();
     }
 
     onNextClick() {
-        console.log('HELLO I AM NEXT');
+        this.props.goForward();
     }
 
 }
