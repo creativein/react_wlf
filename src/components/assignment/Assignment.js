@@ -1,13 +1,11 @@
 import React, { Component } from 'react'
+import Sentence from './sentence/Sentence'
 import { AllHtmlEntities } from 'html-entities'
+import Tool from './tool/Tool'
 
 const entities = new AllHtmlEntities();
 
 export default class Assignment extends Component {
-
-  constructor(props) {
-    super(props);
-  }
   
   state = { 
     selectedTool :  'HIGHLIGHT'
@@ -17,7 +15,8 @@ export default class Assignment extends Component {
     return (
       <div>
         <h2>{entities.decode(this.props.direction)}</h2>
-        {JSON.stringify(this.props.sentences)}
+        <Sentence sentences={this.props.sentences}/>
+        <Tool/>
       </div>
     )
   }

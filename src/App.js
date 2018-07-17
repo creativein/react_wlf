@@ -67,9 +67,9 @@ class App extends Component {
     let rounds = this.state.rounds;
     let currentRound = rounds[roundIndex];
 
-    if (screenIndex < (currentRound.screens.length - 1) && screenIndex != 0) {
+    if (screenIndex < (currentRound.screens.length - 1) && screenIndex !== 0) {
       this.setState({ currentScreenIndex: screenIndex - 1 })
-    } else if (roundIndex != 0) {
+    } else if (roundIndex !== 0) {
       this.setState({ 
         currentScreenIndex: rounds[roundIndex - 1].screens.length - 1, 
         currentRoundIndex: roundIndex - 1 

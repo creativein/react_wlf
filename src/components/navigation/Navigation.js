@@ -1,11 +1,8 @@
-import React, { Component, ReactChildren } from 'react';
+import React, { Component } from 'react';
 import './Navigation.css'
 
 class Navigation extends Component {
 
-    constructor(props) {
-        super(props);
-    }
 
     render() {
         const rounds = this.props.rounds.map(round => {
