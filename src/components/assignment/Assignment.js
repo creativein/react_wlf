@@ -8,15 +8,19 @@ const entities = new AllHtmlEntities();
 export default class Assignment extends Component {
   
   state = { 
-    selectedTool :  'HIGHLIGHT'
+    selectedTool :  'WORD_HIGHLIGHT'
+  }
+
+  selectTool(toolName) {
+    this.setState({selectedTool: toolName})
   }
 
   render() {
     return (
       <div>
         <h2>{entities.decode(this.props.direction)}</h2>
-        <Sentence sentences={this.props.sentences}/>
-        <Tool/>
+        <Sentence sentences={this.props.sentences} selectedTool={this.state.selectedTool}/>
+        <Tool onSelectTool={this.selectTool.bind(this)}/>
       </div>
     )
   }

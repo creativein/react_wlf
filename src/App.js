@@ -58,7 +58,6 @@ class App extends Component {
       screensArray = [];
     });
     this.setState({ rounds: roundsArray });
-    console.log(this.state.rounds);
   }
 
   goBack() {
