@@ -21,7 +21,9 @@ class App extends Component {
         const xml = parser.parseFromString(response.data, 'text/xml');
         const rounds = xml.getElementsByTagName('rounds')[0].getElementsByTagName('round');
         const title = xml.getElementsByTagName('title')[0].innerHTML;
+        const direction = xml.getElementsByTagName('directions')[0].innerHTML;
         this.setState({ title: title });
+        this.setState({ direction: direction })
         this.updateRounds(rounds);
       })
   }
@@ -61,32 +63,37 @@ class App extends Component {
 
   goBack() {
     let screenIndex = this.state.currentScreenIndex;
-    let roundIndex= this.state.currentRoundIndex;
-    let currentRound = this.state.rounds[roundIndex];
-    
-    if ((screenIndex == 0) && (currentRound == 0)) {
-      // can't go to back
-    } else {
-      this.setState({currentScreenIndex: screenIndex - 1})
+    let roundIndex = this.state.currentRoundIndex;
+    let rounds = this.state.rounds;
+    let currentRound = rounds[roundIndex];
+
+    if (screenIndex < (currentRound.screens.length - 1) && screenIndex != 0) {
+      this.setState({ currentScreenIndex: screenIndex - 1 })
+    } else if (roundIndex != 0) {
+      this.setState({ 
+        currentScreenIndex: rounds[roundIndex - 1].screens.length - 1, 
+        currentRoundIndex: roundIndex - 1 
+      });
     }
 
   }
 
   goForward() {
     let screenIndex = this.state.currentScreenIndex;
-    let roundIndex= this.state.currentRoundIndex;
+    let roundIndex = this.state.currentRoundIndex;
     let currentRound = this.state.rounds[roundIndex];
-    
+
     if (screenIndex < (currentRound.screens.length - 1)) {
-      this.setState({currentScreenIndex: screenIndex + 1})
-    } else if(roundIndex < this.state.rounds.length - 1) {
-      this.setState({currentRoundIndex : roundIndex + 1, currentScreenIndex: 0});
+      this.setState({ currentScreenIndex: screenIndex + 1 })
+    } else if ((roundIndex < this.state.rounds.length - 1)) {
+      this.setState({ currentRoundIndex: roundIndex + 1, currentScreenIndex: 0 });
     }
   }
 
   render() {
     const assignment = (this.state.rounds.length > 0) ? <React.Fragment>
-      <Assignment sentences={this.state.rounds[this.state.currentRoundIndex].screens[this.state.currentScreenIndex]} />
+      <Assignment sentences={this.state.rounds[this.state.currentRoundIndex].screens[this.state.currentScreenIndex]}
+        direction={this.state.direction} />
     </React.Fragment> : ''
     return (
       <div className="App">
