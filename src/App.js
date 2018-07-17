@@ -69,9 +69,9 @@ class App extends Component {
     if (screenIndex < (currentRound.screens.length - 1) && screenIndex !== 0) {
       this.setState({ currentScreenIndex: screenIndex - 1 })
     } else if (roundIndex !== 0) {
-      this.setState({ 
-        currentScreenIndex: rounds[roundIndex - 1].screens.length - 1, 
-        currentRoundIndex: roundIndex - 1 
+      this.setState({
+        currentScreenIndex: rounds[roundIndex - 1].screens.length - 1,
+        currentRoundIndex: roundIndex - 1
       });
     }
 
@@ -89,6 +89,14 @@ class App extends Component {
     }
   }
 
+  closeAvtivity() {
+    window.close();
+  }
+
+  showHelp() {
+    console.log('help to show here');
+  }
+
   render() {
     const assignment = (this.state.rounds.length > 0) ? <React.Fragment>
       <Assignment sentences={this.state.rounds[this.state.currentRoundIndex].screens[this.state.currentScreenIndex]}
@@ -97,7 +105,11 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <h1 className="App-title">{this.state.title}</h1>
+          <h1 className="App-title"> {this.state.title}</h1>
+          <div className="pull-right">
+            <button className="btn help-btn" onClick={() => this.showHelp()}> </button>
+            <button className="btn close-btn" onClick={() => this.closeAvtivity()}> </button>
+          </div>
         </header>
         {assignment}
         <Navigation rounds={this.state.rounds}

@@ -2,7 +2,7 @@
   height: 50px;
   background: #005b8a;
   text-align: left;
-  padding: 3px 20px;
+  padding: 3px 10px;
 }
 
 h1 {
@@ -11,4 +11,30 @@ h1 {
   font-size: 22px;
   margin: 0;
   padding: 7px 0;
+}
+
+.help-btn,
+.close-btn {
+  width: 34px;
+  height: 34px;
+  background-repeat: no-repeat;
+  background-size: 34px;
+  border: 1px solid white;
+  position: absolute;
+  right: 62px;
+  top: 9px;
+  padding: 0 !important;
+  background-color: transparent;
+}
+
+.help-btn {
+  position: absolute;
+  right: 62px;
+  top: 9px;
+}
+
+.close-btn {
+  position: absolute;
+  right: 20px;
+  top: 9px;
 }

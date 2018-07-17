@@ -5,7 +5,7 @@ export default class Sentence extends Component {
   render() {
     return (
       <div className="wrapper">
-        {this.props.selectedTool}
+        
       </div>
     )
   }
