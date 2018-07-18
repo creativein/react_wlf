@@ -37,16 +37,6 @@ export default class Wlf_service{
     getNodeList(elem, selector): Array<any> {
         return [].slice.call(elem.querySelectorAll(selector));
     }
-    getTagClassText(tagOpen) {
-        let str = '';
-        switch (tagOpen.replace(/\<|\>/g, '')) {
-            case 'u':
-            case 'U':
-                str += ' is underlined';
-                break;
-        }
-        return str;
-    }
     getClassName(action): string {
         let className = '';
         switch (action) {
