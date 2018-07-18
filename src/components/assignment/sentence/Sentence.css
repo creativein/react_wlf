@@ -3,3 +3,45 @@
     height: 200px;
     width: 100%
 }
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+.highlight {
+    background: #ffff4f;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+.identification {
+    color: #006BFF;
+}
+
+u {
+    text-decoration: none;
+    border-bottom: 1px solid #000;
+}
+
+.divide:after {
+    content: '';
+    border-left: 2px solid #FE7B16;
+}
+
+.tdivide:hover {
+    background-color: #FFF;
+}
+
+.tdivide::after {
+    content: '';
+    border-left: 2px solid #FE7B16;
+}
