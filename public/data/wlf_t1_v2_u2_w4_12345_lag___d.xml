@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <word_letter_focus>
   <title>Grammar: Common and Proper Nouns</title>
-  <directions>&lt;p&gt;Highlight the proper nouns and underline the common nouns in each sentence.&lt;/p&gt;</directions>
+  <directions>Highlight the proper nouns and underline the common nouns in each sentence.</directions>
   <sfxPool value="pool1" />
   <background value="yellow3" />
   <rounds>
@@ -15,41 +15,16 @@
           </words>
           <sentences>
             <sentence>
-              <text>&lt;p&gt;{wh}Jen{/wh} lost her {wu}mittens{/wu} at {wh}King School{/wh}.&lt;/p&gt;</text>
+              <text>{wh}Jen{/wh} lost her {wu}mittens{/wu} at {wh}King School{/wh}.</text>
             </sentence>
             <sentence>
-              <text>&lt;p&gt;{wu}Kids{/wu} sing all {wu}day{/wu} at {wh}Camp Quest{/wh}.&lt;/p&gt;</text>
+              <text>{wu}Kids{/wu} sing all {wu}day{/wu} at {wh}Camp Quest{/wh}.</text>
             </sentence>
             <sentence>
-              <text>&lt;p&gt;We saw {wu}bass{/wu} in {wh}Bells Pond{/wh}.&lt;/p&gt;</text>
+              <text>We saw {wu}bass{/wu} in {wh}Bells Pond{/wh}.</text>
             </sentence>
             <sentence>
-              <text>&lt;p&gt;{wh}Mel{/wh} will make {wu}props{/wu} for the {wu}play{/wu}.&lt;/p&gt;</text>
-            </sentence>
-          </sentences>
-        </item>
-      </screens>
-    </round>
-    <round>
-      <screens>
-        <item>
-          <words>
-            <word>
-              <text />
-            </word>
-          </words>
-          <sentences>
-            <sentence>
-              <text>&lt;p&gt;The {wu}hen{/wu} has {wu}eggs{/wu} in that {wu}nest{/wu}.&lt;/p&gt;</text>
-            </sentence>
-            <sentence>
-              <text>&lt;p&gt;My {wu}dog{/wu} {wh}Tess{/wh} has three {wu}pups{/wu}.&lt;/p&gt;</text>
-            </sentence>
-            <sentence>
-              <text>&lt;p&gt;{wh}Cass{/wh} can hem her {wu}pants{/wu}.&lt;/p&gt;</text>
-            </sentence>
-            <sentence>
-              <text>&lt;p&gt;{wh}Brad{/wh} and {wh}Meg{/wh} wed the next {wu}day{/wu}.&lt;/p&gt;</text>
+              <text>{wh}Mel{/wh} will make {wu}props{/wu} for the {wu}play{/wu}.</text>
             </sentence>
           </sentences>
         </item>
@@ -65,41 +40,16 @@
           </words>
           <sentences>
             <sentence>
-              <text>&lt;p&gt;{wh}Dad{/wh} is grilling at the {wu}picnic{/wu}.&lt;/p&gt;</text>
+              <text>The {wu}hen{/wu} has {wu}eggs{/wu} in that {wu}nest{/wu}.</text>
             </sentence>
             <sentence>
-              <text>&lt;p&gt;The {wu}duck{/wu} had {wu}fuzz{/wu} on its {wu}head{/wu}.&lt;/p&gt;</text>
+              <text>My {wu}dog{/wu} {wh}Tess{/wh} has three {wu}pups{/wu}.</text>
             </sentence>
             <sentence>
-              <text>&lt;p&gt;{wh}Mom{/wh} likes to eat fresh {wu}fish{/wu}.&lt;/p&gt;</text>
+              <text>{wh}Cass{/wh} can hem her {wu}pants{/wu}.</text>
             </sentence>
             <sentence>
-              <text>&lt;p&gt;Could {wh}Brent{/wh} move to {wh}Billings{/wh}?&lt;/p&gt;</text>
-            </sentence>
-          </sentences>
-        </item>
-      </screens>
-    </round>
-    <round>
-      <screens>
-        <item>
-          <words>
-            <word>
-              <text />
-            </word>
-          </words>
-          <sentences>
-            <sentence>
-              <text>&lt;p&gt;{wh}Frank{/wh} finished the {wu}run{/wu} with a fast {wu}dash{/wu}.&lt;/p&gt;</text>
-            </sentence>
-            <sentence>
-              <text>&lt;p&gt;{wh}Miss Smith{/wh} said that I swim like a {wu}fish{/wu}.&lt;/p&gt;</text>
-            </sentence>
-            <sentence>
-              <text>&lt;p&gt;{wh}Wes{/wh} thinks that he can make the {wu}shot{/wu}.&lt;/p&gt;</text>
-            </sentence>
-            <sentence>
-              <text>&lt;p&gt;{wh}Lex{/wh} was a {wu}mess{/wu} of {wu}mud{/wu}.&lt;/p&gt;</text>
+              <text>{wh}Brad{/wh} and {wh}Meg{/wh} wed the next {wu}day{/wu}.</text>
             </sentence>
           </sentences>
         </item>
@@ -115,16 +65,16 @@
           </words>
           <sentences>
             <sentence>
-              <text>&lt;p&gt;{wh}Stan{/wh} has a red {wu}jacket{/wu} with {wu}cuffs{/wu}.&lt;/p&gt;</text>
+              <text>{wh}Dad{/wh} is grilling at the {wu}picnic{/wu}.</text>
             </sentence>
             <sentence>
-              <text>&lt;p&gt;The {wu}chicks{/wu} are pecking at the {wu}sand{/wu}.&lt;/p&gt;</text>
+              <text>The {wu}duck{/wu} had {wu}fuzz{/wu} on its {wu}head{/wu}.</text>
             </sentence>
             <sentence>
-              <text>&lt;p&gt;{wh}Em{/wh} left, but she will come back one {wu}day{/wu}.&lt;/p&gt;</text>
+              <text>{wh}Mom{/wh} likes to eat fresh {wu}fish{/wu}.</text>
             </sentence>
             <sentence>
-              <text>&lt;p&gt;{wh}Matt{/wh} got cut on the cracked {wu}glass{/wu}.&lt;/p&gt;</text>
+              <text>Could {wh}Brent{/wh} move to {wh}Billings{/wh}?</text>
             </sentence>
           </sentences>
         </item>
@@ -140,16 +90,66 @@
           </words>
           <sentences>
             <sentence>
-              <text>&lt;p&gt;{wh}Kit{/wh} got a {wu}cab{/wu} to the {wu}gig{/wu}.&lt;/p&gt;</text>
+              <text>{wh}Frank{/wh} finished the {wu}run{/wu} with a fast {wu}dash{/wu}.</text>
             </sentence>
             <sentence>
-              <text>&lt;p&gt;Did {wh}Nick{/wh} and {wh}Kim{/wh} pack the {wu}boxes{/wu}?&lt;/p&gt;</text>
+              <text>{wh}Miss Smith{/wh} said that I swim like a {wu}fish{/wu}.</text>
             </sentence>
             <sentence>
-              <text>&lt;p&gt;My {wu}cat{/wu} {wh}Rex{/wh} lives under the {wu}deck{/wu}.&lt;/p&gt;</text>
+              <text>{wh}Wes{/wh} thinks that he can make the {wu}shot{/wu}.</text>
             </sentence>
             <sentence>
-              <text>&lt;p&gt;{wh}Bob{/wh} will see the {wu}snacks{/wu} and lick his {wu}lips{/wu}.&lt;/p&gt;</text>
+              <text>{wh}Lex{/wh} was a {wu}mess{/wu} of {wu}mud{/wu}.</text>
+            </sentence>
+          </sentences>
+        </item>
+      </screens>
+    </round>
+    <round>
+      <screens>
+        <item>
+          <words>
+            <word>
+              <text />
+            </word>
+          </words>
+          <sentences>
+            <sentence>
+              <text>{wh}Stan{/wh} has a red {wu}jacket{/wu} with {wu}cuffs{/wu}.</text>
+            </sentence>
+            <sentence>
+              <text>The {wu}chicks{/wu} are pecking at the {wu}sand{/wu}.</text>
+            </sentence>
+            <sentence>
+              <text>{wh}Em{/wh} left, but she will come back one {wu}day{/wu}.</text>
+            </sentence>
+            <sentence>
+              <text>{wh}Matt{/wh} got cut on the cracked {wu}glass{/wu}.</text>
+            </sentence>
+          </sentences>
+        </item>
+      </screens>
+    </round>
+    <round>
+      <screens>
+        <item>
+          <words>
+            <word>
+              <text />
+            </word>
+          </words>
+          <sentences>
+            <sentence>
+              <text>{wh}Kit{/wh} got a {wu}cab{/wu} to the {wu}gig{/wu}.</text>
+            </sentence>
+            <sentence>
+              <text>Did {wh}Nick{/wh} and {wh}Kim{/wh} pack the {wu}boxes{/wu}?</text>
+            </sentence>
+            <sentence>
+              <text>My {wu}cat{/wu} {wh}Rex{/wh} lives under the {wu}deck{/wu}.</text>
+            </sentence>
+            <sentence>
+              <text>{wh}Bob{/wh} will see the {wu}snacks{/wu} and lick his {wu}lips{/wu}.</text>
             </sentence>
           </sentences>
         </item>

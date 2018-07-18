@@ -1,0 +1,128 @@
+{
+  "type": "word_letter_focus",
+  "title":  "Grammar: Kinds of Nouns",
+  "directions": {
+    "text":  "<p>Highlight any proper nouns and underline any common nouns in the sentences below.</p>",
+    "audio": ""
+  },
+  "sfxPool": {
+    "value": "pool1"
+  },
+  "background": {
+    "value": "yellow2.png"
+  },
+  "help": {
+    "text":  "<b>Word Workbench</b> Help<br /><b>Answering Questions</b><br /><b>Read</b> the directions at the start of the activity.<br /><b>Read</b> the words or sentences underneath the directions.<b>Select</b> the right tool from the workbench at the bottom of the screen. You can use your tools to <b>highight a word, underline a word, identify a single letter, or divide a word</b>.<br />Once your tool is selected, <b>click</b> or <b>tap</b> on the word where you want to use it. If you on a tablet device, <b>tap twice</b> to confirm where you want to use the tool.<br />If you want to change your edits, select the <b>Erase tool</b>, and then select the word, or letter you want to change.<br />As an alternative to the mouse, the keyboard may be used. Press <b>Tab</b> to move to a desired tool or location, and then press <b>Space</b> to select your tool or word.<br />Use the <b>Check</b> button to find out if your answer is correct.<br />If the answer is incorrect, use the <b>Try Again</b> button, then choose a new answer.<br />Use the <b>Show Correct Answer</b> and <b>Back to Answer</b> buttons to compare correct answers and your responses.<br /> Use the <b>Previous</b> and <b>Next</b> buttons to navigate between question screens. You may review previous answers.<br /><b>Top Buttons</b><br />Use the button with the <b>question mark</b> to come back to this help page.<br />Use the button with the <b>X</b> to close the activity.<br />Use the button with the <b>speaker</b> to mute automatic audio feedback.\"",
+    "audio": "WLF_Help.mp3"
+  },
+  "screens": [
+    {
+      "words": {
+        "word": {
+          "text": []
+        }
+      },
+      "sentences": {
+        "sentence": {
+          "text": [
+             "The {wu}squirrels{/wu} live in an oak {wu}tree{/wu}.",
+             "The {wu}trees{/wu} are on {wh}Elm Street{/wh}.",
+             "{wh}Mrs. Shane{/wh}  saw the {wu}squirrel{/wu}  hide the {wu}acorns{/wu}.",
+             "{wh}Peachtree Park{/wh}  is full of little {wu}animals{/wu}."
+          ]
+        }
+      },
+      "feedback": {
+        "correct": {
+          "text": "Correct",
+          "audio": "correct.mp3"
+        },
+        "incorrect": {
+          "text": "Incorrect",
+          "audio": "incorrect.mp3"
+        }
+      }
+    },
+    {
+      "words": {
+        "word": {
+          "text": []
+        }
+      },
+      "sentences": {
+        "sentence": {
+          "text": [
+             "{wh}Amanda{/wh} took us to that {wu}park{/wu} one {wu}day{/wu}.",
+             "The {wu}children{/wu} saw {wu}nests{/wu} made by {wu}birds{/wu}.",
+             "A {wu}robin{/wu} was sitting on a {wu}branch{/wu}. ",
+             "{wh}Oakview City Hall{/wh} is on {wh}Main Street{/wh}."
+          ]
+        }
+      },
+      "feedback": {
+        "correct": {
+          "text": "Correct",
+          "audio": "correct.mp3"
+        },
+        "incorrect": {
+          "text": "Incorrect",
+          "audio": "incorrect.mp3"
+        }
+      }
+    },
+    {
+      "words": {
+        "word": {
+          "text": []
+        }
+      },
+      "sentences": {
+        "sentence": {
+          "text": [
+             "Some {wu}geese{/wu} live on the {wu}lawn{/wu} of the {wu}city building{/wu}. ",
+             "{wh}Mayor Curtis{/wh} can see the {wu}nest{/wu} from her {wu}window{/wu}.",
+             "The {wu}police station{/wu} is near the {wh}Delaware River{/wh}. ",
+             "The {wu}police{/wu} watch the little {wu}ducks{/wu}  swim. "
+          ]
+        }
+      },
+      "feedback": {
+        "correct": {
+          "text": "Correct",
+          "audio": "correct.mp3"
+        },
+        "incorrect": {
+          "text": "Incorrect",
+          "audio": "incorrect.mp3"
+        }
+      }
+    },
+    {
+      "words": {
+        "word": {
+          "text": []
+        }
+      },
+      "sentences": {
+        "sentence": {
+          "text": [
+             "I know {wh}Officer Schram{/wh} because he visits my {wu}school{/wu}.",
+             "{wh}Mr. Jones{/wh} used a {wu}ladder{/wu} to get a {wu}cat{/wu} off the {wu}roof{/wu}.",
+             "The {wu}cat{/wu} named {wh}Sparky{/wh} lives at the {wu}fire station{/wu}.",
+             "The {wu}firefighters{/wu} keep the {wu}town{/wu} of {wh}Acton{/wh}  safe all {wu}year{/wu}."
+          ]
+        }
+      },
+      "feedback": {
+        "correct": {
+          "text": "Correct",
+          "audio": "correct.mp3"
+        },
+        "incorrect": {
+          "text": "Incorrect",
+          "audio": "incorrect.mp3"
+        }
+      }
+    }
+  ]
+}

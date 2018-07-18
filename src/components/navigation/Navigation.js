@@ -5,8 +5,8 @@ class Navigation extends Component {
 
 
     render() {
-        const rounds = this.props.rounds.map(round => {
-            return <div className="round"></div>
+        const rounds = this.props.rounds.map((round,index) => {
+            return <div className="round" key={index}></div>
         })
         return (
             <footer>
