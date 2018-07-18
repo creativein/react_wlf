@@ -3,7 +3,7 @@ import axios from 'axios';
 import './App.css';
 import Navigation from './components/navigation/Navigation'
 import Assignment from './components/assignment/Assignment';
-
+import Help from './components/help/Help'
 class App extends Component {
 
   state = {
@@ -107,7 +107,7 @@ class App extends Component {
         <header className="App-header">
           <h1 className="App-title"> {this.state.title}</h1>
           <div className="pull-right">
-            <button className="btn help-btn" onClick={() => this.showHelp()}> </button>
+            <button className="btn help-btn" data-toggle="modal" data-target="#helpModal" onClick={() => this.showHelp()}> </button>
             <button className="btn close-btn" onClick={() => this.closeAvtivity()}> </button>
           </div>
         </header>
@@ -115,6 +115,7 @@ class App extends Component {
         <Navigation rounds={this.state.rounds}
           goBack={this.goBack.bind(this)}
           goForward={this.goForward.bind(this)} />
+        <Help/>
       </div>
     );
   }
