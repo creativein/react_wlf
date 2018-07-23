@@ -39,7 +39,7 @@ export default class Tool extends Component {
 
   render() {
     const tools = this.TOOLS.map( (tool, index) => {
-      return <div role="button" className="tool" key={index} onClick={this.selectTool.bind(this, tool)}>{tool.name}</div>
+      return <div role="button" tabIndex="0" className="tool" key={index} onClick={this.selectTool.bind(this, tool)}>{tool.name}</div>
     })
     return (
       <div className="tool-box-wrapper">
