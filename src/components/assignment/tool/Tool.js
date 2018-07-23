@@ -6,29 +6,35 @@ export default class Tool extends Component {
     {
       name: 'WORD_HIGHLIGHT',
       image: '',
-      altText: ''
+      altText: '',
+      type: 'word'
     }, {
       name: 'WORD_UNDERLINE',
       image: '',
-      altText: ''
+      altText: '',
+      type: 'word'
     }, {
       name: 'LETTER_IDENTIFICATION',
       image: '',
-      altText: ''
+      altText: '',
+      type: 'letter'
     }, {
       name: 'DIVIDE',
       image: '',
-      altText: ''
+      altText: '',
+      type:'letter'
     },
     {
       name: 'ERASE',
       image: '',
-      altText: ''
+      altText: '',
+      type: 'all'
     }
   ]
 
-  selectTool(tool, target) {
-    this.props.onSelectTool(tool.name);
+  selectTool(tool) {
+    this.props.onSelectTool(tool.name,tool.type);
+    console.log("from tool");
   }
 
   render() {

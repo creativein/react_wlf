@@ -40,16 +40,16 @@ export default class Wlf_service{
     getClassName(action): string {
         let className = '';
         switch (action) {
-            case 'Word Highlight':
+            case 'WORD_HIGHLIGHT':
                 className = 'highlight';
                 break;
-            case 'Word Underline':
+            case 'WORD_UNDERLINE':
                 className = 'underline';
                 break;
-            case 'Letter Identification':
+            case 'LETTER_IDENTIFICATION':
                 className = 'identification';
                 break;
-            case 'Divide':
+            case 'DIVIDE':
                 className = 'divide';
                 break;
         }

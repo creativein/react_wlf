@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import './Sentence.css'
 import Wlf_service from '../../../service/word_letter_focus_service'
 import ReactDOM from 'react-dom';
-
+import PubSub from 'pubsub-js'
 export default class Sentence extends Component {
     constructor(props) {
         super(props);
@@ -10,7 +10,8 @@ export default class Sentence extends Component {
             data: null,
             changed: false,
             questions: [],
-            originalQuestions: []
+            originalQuestions: [],
+            selectedTool: ""
         };
         this.classList = [
             {alias: '{wu}', classname: 'underline', defaultClassName: '', type: 'word'},
@@ -39,13 +40,15 @@ export default class Sentence extends Component {
         this.parsedString = '';
         this.showFeedback = false;
         this.el = null;
-        this.action = 'Divide';
+        this.action = 'WORD_HIGHLIGHT';
         this.isClicked = false;
         //TODO needs tobe changed on tool selection
-        this.type = "letter";
+        this.type = "word";
         //TODO Needs to be updated on action chnage
         this.className = this.wlf_service.getClassName(this.action);
+        this.changeToolState = null;
     }
+   
     componentDidMount() {
        console.log(ReactDOM.findDOMNode(this));
         this.el = ReactDOM.findDOMNode(this);
@@ -57,6 +60,18 @@ export default class Sentence extends Component {
         this.bindEvents('.el', 'keydown', this.onKeyDown);
         this.bindEvents('.el', 'keyup', this.onKeyUp);
         this.bindEvents('.el', 'focus', this.onFocus);
+
+        this.changeToolState = PubSub.subscribe('changeToolState', (msg,data)=> {
+            this.action = data.selectedTool;
+            this.type = data.selectionType;
+            this.className = this.wlf_service.getClassName(this.action);
+            this.updatePropertyOnType(this.type);
+            this.isClicked = false;
+            console.log(msg,data);
+        });
+    }
+    componentWillUnmount(){
+        this.changeToolState.unsubscribe();
     }
     updatePropertyOnType(type: string) {
         if (type === 'word') {
@@ -97,7 +112,7 @@ export default class Sentence extends Component {
         activeElem.blur();
     }
     onMouseOver(event) {
-        if (this.action === 'Divide') {
+        if (this.action === 'DIVIDE') {
             this.performClassOperation('add', '#' + event.target.id, 'tdivide');
         }
         if (this.isClicked) {
@@ -105,7 +120,7 @@ export default class Sentence extends Component {
         }
     }
     onMouseLeave(event) {
-        if (this.action === 'Divide') {
+        if (this.action === 'DIVIDE') {
             this.performClassOperation('remove', '#' + event.target.id, 'tdivide');
         }
     }
@@ -225,7 +240,7 @@ export default class Sentence extends Component {
             console.log("enableValidate");
             // this.emitValidationState('enableValidate');
         }
-        if (this.action === 'Word Highlight' || this.action === 'Word Underline') {
+        if (this.action === 'WORD_HIGHLIGHT' || this.action === 'WORD_UNDERLINE') {
             target = event.currentTarget;
         } else {
             target = event.target;
@@ -235,7 +250,7 @@ export default class Sentence extends Component {
             this._addSeparatorClass(target, this.className);
         }
         // erase functionality
-        if (this.action === 'Erase') {
+        if (this.action === 'ERASE') {
             this.erase(target);
         }
     }
@@ -504,7 +519,6 @@ export default class Sentence extends Component {
 
     render() {
         let fixtureArr = [];
-        console.log(this.props.sentences);
         this.state.originalQuestions = [];
         this.state.questions = this._createReducedQuestionArray(this.props.sentences);
         this.state.questions = this.state.questions.map((item, index)=> {
