@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import './Sentence.css'
 import Wlf_service from '../../../service/word_letter_focus_service'
 import ReactDOM from 'react-dom';
@@ -14,18 +14,18 @@ export default class Sentence extends Component {
             selectedTool: ""
         };
         this.classList = [
-            {alias: '{wu}', classname: 'underline', defaultClassName: '', type: 'word'},
-            {alias: '{lh}', classname: 'identification', defaultClassName: '', type: 'letter'},
-            {alias: '{wh}', classname: 'highlight', defaultClassName: '', type: 'word'},
-            {alias: '{dv}', classname: 'divide', defaultClassName: '', type: 'letter'},
-            {alias: '{.}', classname: 'period', defaultClassName: 'question-period', type: 'word'},
-            {alias: '{,}', classname: 'comma', defaultClassName: 'question-comma', type: 'word'},
-            {alias: '{?}', classname: 'questionmark', defaultClassName: 'question-questionmark', type: 'word'},
-            {alias: "{'}", classname: 'apostrophe', defaultClassName: 'question-apostrophe', type: 'word'},
-            {alias: '{u}', classname: 'uppercase', defaultClassName: 'question-uppercase', type: 'word'},
-            {alias: '{l}', classname: 'lowercase', defaultClassName: 'question-lowercase', type: 'word'},
-            {alias: '{s}', classname: 'spellcheck', defaultClassName: 'question-spellcheck', type: 'word'},
-            {alias: '{!}', classname: 'exclamation', defaultClassName: 'question-exclamation', type: 'word'}
+            { alias: '{wu}', classname: 'underline', defaultClassName: '', type: 'word' },
+            { alias: '{lh}', classname: 'identification', defaultClassName: '', type: 'letter' },
+            { alias: '{wh}', classname: 'highlight', defaultClassName: '', type: 'word' },
+            { alias: '{dv}', classname: 'divide', defaultClassName: '', type: 'letter' },
+            { alias: '{.}', classname: 'period', defaultClassName: 'question-period', type: 'word' },
+            { alias: '{,}', classname: 'comma', defaultClassName: 'question-comma', type: 'word' },
+            { alias: '{?}', classname: 'questionmark', defaultClassName: 'question-questionmark', type: 'word' },
+            { alias: "{'}", classname: 'apostrophe', defaultClassName: 'question-apostrophe', type: 'word' },
+            { alias: '{u}', classname: 'uppercase', defaultClassName: 'question-uppercase', type: 'word' },
+            { alias: '{l}', classname: 'lowercase', defaultClassName: 'question-lowercase', type: 'word' },
+            { alias: '{s}', classname: 'spellcheck', defaultClassName: 'question-spellcheck', type: 'word' },
+            { alias: '{!}', classname: 'exclamation', defaultClassName: 'question-exclamation', type: 'word' }
         ];
         this._wordSpanData = '';
         this._charSet = [];
@@ -48,9 +48,9 @@ export default class Sentence extends Component {
         this.className = this.wlf_service.getClassName(this.action);
         this.changeToolState = null;
     }
-   
+
     componentDidMount() {
-       console.log(ReactDOM.findDOMNode(this));
+        console.log(ReactDOM.findDOMNode(this));
         this.el = ReactDOM.findDOMNode(this);
         this.updatePropertyOnType(this.type);
         this.bindEvents('.el', 'mousedown', this.onMouseDown);
@@ -61,19 +61,19 @@ export default class Sentence extends Component {
         this.bindEvents('.el', 'keyup', this.onKeyUp);
         this.bindEvents('.el', 'focus', this.onFocus);
 
-        this.changeToolState = PubSub.subscribe('changeToolState', (msg,data)=> {
+        this.changeToolState = PubSub.subscribe('changeToolState', (msg, data) => {
             this.action = data.selectedTool;
             this.type = data.selectionType;
             this.className = this.wlf_service.getClassName(this.action);
             this.updatePropertyOnType(this.type);
             this.isClicked = false;
-            console.log(msg,data);
+            console.log(msg, data);
         });
     }
-    componentWillUnmount(){
+    componentWillUnmount() {
         this.changeToolState.unsubscribe();
     }
-    updatePropertyOnType(type: string) {
+    updatePropertyOnType(type) {
         if (type === 'word') {
             this.performClassOperation('remove', '.letter', 'el');
             this.performClassOperation('add', '.word', 'el');
@@ -91,9 +91,9 @@ export default class Sentence extends Component {
             this.performRemoveAttributeOperation('.word', 'tabindex');
         }
     }
-    bindEvents(selector, evType, fn){
+    bindEvents(selector, evType, fn) {
         this.wlf_service.getNodeList(this.el, selector).forEach((elem, index) => {
-            elem.addEventListener(evType,fn.bind(this));
+            elem.addEventListener(evType, fn.bind(this));
         });
     }
 
@@ -108,7 +108,7 @@ export default class Sentence extends Component {
         }
         this.isClicked = true;
         event.preventDefault();
-        const activeElem: any = document.activeElement;
+        const activeElem = document.activeElement;
         activeElem.blur();
     }
     onMouseOver(event) {
@@ -124,7 +124,7 @@ export default class Sentence extends Component {
             this.performClassOperation('remove', '#' + event.target.id, 'tdivide');
         }
     }
-    performClassOperation(fnType, selector: any, cls: string) {
+    performClassOperation(fnType, selector, cls) {
         this.wlf_service.getNodeList(this.el, selector).forEach((elem) => {
             elem.classList[fnType](cls);
         });
@@ -150,18 +150,18 @@ export default class Sentence extends Component {
         console.log(this._wlfPrpTextToSpeech(event));
     }
 
-    performAttributeOperation(selector: any, attr: any, attrValue: any) {
+    performAttributeOperation(selector, attr, attrValue) {
         this.wlf_service.getNodeList(this.el, selector).forEach((elem) => {
             elem.setAttribute(attr, attrValue);
         });
     }
-    performRemoveAttributeOperation(selector: any, attr: any) {
+    performRemoveAttributeOperation(selector, attr) {
         this.wlf_service.getNodeList(this.el, selector).forEach((elem) => {
             elem.removeAttribute(attr);
         });
     }
     _wlfPrpTextToSpeech(event) {
-        let classes: Array<string>,
+        let classes,
             text = ' ';
         classes = event.target.getAttribute('class').replace(/(el letter)|(question-container cols-xs-12)|(pointerAdd)|(el word)|(el)|(letter)|(word)|(correctly-answer)|(wrong-answer)|(correct-\w+)|(question-\w+)/g, '').split(' ');
         classes = classes.join(' ').replace(/splcheck/g, 'spellcheck').split(' ');
@@ -185,7 +185,7 @@ export default class Sentence extends Component {
         return text;
     }
 
-    erase(target): void {
+    erase(target){
         const closestWord = this._findClosestMatch(target, 'word'),
             closestLetter = this._findClosestMatch(target, 'letter');
         if (!closestWord.classList.contains('correctly-answer')) {
@@ -227,7 +227,7 @@ export default class Sentence extends Component {
         target.classList.remove(classname);
     }
 
-    _findClosestMatch(target, classname): any {
+    _findClosestMatch(target, classname) {
         if (target.classList.contains(classname)) {
             return target;
         }
@@ -255,7 +255,7 @@ export default class Sentence extends Component {
         }
     }
 
-     _addSeparatorClass(target, className): void {
+    _addSeparatorClass(target, className){
         const classType = target.classList[1],
             prevSeparatorElem = target.classList.contains('references') ?
                 target.parentElement.previousElementSibling : target.previousElementSibling,
@@ -285,7 +285,7 @@ export default class Sentence extends Component {
         }
     }
 
-    reduceQuestionString(string):void {
+    reduceQuestionString(string){
         let tempStr = "";
         tempStr = string.replace(/(\w+)({(\W+)\|(\W+)})/gi, '$1{$3}{$4}');
         tempStr = tempStr.replace(/{\'}/gi, "{'} ");
@@ -297,21 +297,21 @@ export default class Sentence extends Component {
 
     _createReducedQuestionArray(sentenceObj) {
         let reducedArr = [];
-        reducedArr = sentenceObj.sentences.map((item, index)=> {
+        reducedArr = sentenceObj.sentences.map((item, index) => {
             return this.reduceQuestionString(item)
         });
         return reducedArr;
     }
 
 
-    splitWord(question,index):String {
+    splitWord(question, index) {
         // TO DO : NEED TO REFACTOR THIS FUNCTION
         this._wordSet = question.split(' ');
         let original_wordSet = this.state.originalQuestions[index].split(' ');
         for (const word of this._wordSet) {
             let htmlString = '',
                 match = '',
-                matches:Array<string>;
+                matches;
 
             this._wordPos = this._wordPos + 1;
             const id = this._wordPos;
@@ -461,7 +461,7 @@ export default class Sentence extends Component {
         return (openingTag + oPText + `<span class="references el word"
       aria-labelledBy="word_${starting_index}_${this.charCount - 1}_${wordText}_label"
       id="word_${starting_index}_${this.charCount - 1}_${wordText}">${wordSpan}</span>` + closingTag +
-        `<span class='sr-only' id="word_${starting_index}_${this.charCount - 1}_${wordText}_label">
+            `<span class='sr-only' id="word_${starting_index}_${this.charCount - 1}_${wordText}_label">
       ${wordText} ${this.wlf_service.getTagClassText(openingTag)}</span>` + cPText);
     }
 
@@ -521,16 +521,16 @@ export default class Sentence extends Component {
         let fixtureArr = [];
         this.state.originalQuestions = [];
         this.state.questions = this._createReducedQuestionArray(this.props.sentences);
-        this.state.questions = this.state.questions.map((item, index)=> {
+        this.state.questions = this.state.questions.map((item, index) => {
             this._wordPos = -1;
             this.htmldata = '';
-            return this.splitWord(item,index);
+            return this.splitWord(item, index);
         });
-        fixtureArr = this.state.questions.map((item, index)=> {
+        fixtureArr = this.state.questions.map((item, index) => {
             return (
                 <div className="parent-question-container" key={index}>
                     <span className="feedback-container"></span>
-                    <span className="question-wrapper"  dangerouslySetInnerHTML={{__html: item}}>
+                    <span className="question-wrapper" dangerouslySetInnerHTML={{ __html: item }}>
                     </span>
                 </div>
             );
